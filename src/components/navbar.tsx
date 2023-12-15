@@ -26,7 +26,7 @@ export default function NavBar({ userName }: NavBarProps) {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">Tool finder</Navbar.Brand>
+        <Navbar.Brand href="#">Password manager</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

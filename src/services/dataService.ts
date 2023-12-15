@@ -54,7 +54,7 @@ export class DataService {
     }
 
 
-    public async createPassword(username: string, password: string, url: string, name: string) {
+    public async createPassword(username: string, password: string, name: string, url: string) {
         const body = {} as any;
         body.username = username;
         body.password = password;
@@ -74,6 +74,20 @@ export class DataService {
         return resultJSON.id
     }
 
+    public async deletePassword(passwordId: string) {
+    
+        const result = await fetch(passwordmanagerUrl + `?id=${passwordId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': this.authService.jwtToken!
+            },
+        });
+        const resultJSON = await result.json();
+        console.log(resultJSON);
+
+        return resultJSON
+
+    }
     
     public isAuthorized(){
         return this.authService.isAuthorized();

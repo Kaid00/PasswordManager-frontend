@@ -1,6 +1,5 @@
 import { SyntheticEvent, useState } from "react";
 import { PasswordModel } from "../model/passwordModel";
-import './toolComponent.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -8,8 +7,10 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 interface passwordCard extends PasswordModel {
-  // deletePassword: (toolId: string, toolName: string, location: string, photoUrl: string) => void;
-  // isDeleting: Boolean;
+  deletePassword: (passwordId: string, passwordName: string) => void;
+  updatePassword: (passwordId: string,username: string, password: string, name: string, url: string) => void;
+ 
+  isDeleting: Boolean;
 }
 
 export default function PasswordCard(props: passwordCard) {
@@ -20,22 +21,6 @@ export default function PasswordCard(props: passwordCard) {
   const [password, setPassword] = useState<string>(props.password);
 
   return (
-
-
-    // <div className="toolComponent">
-    // <Form >
-    // <Form.Control type="text" placeholder="name" value={name}  onChange={(e) => setName(e.target.value)}/>
-    // <Form.Control type="text" placeholder="url" value={siteUrl}  onChange={(e) => setsiteUrl(e.target.value)}/>
-    // <Form.Control type="text" placeholder="username" value={username}  onChange={(e) => setUserName(e.target.value)}/>
-    // <Form.Control type="text" placeholder="password" value={password}  onChange={(e) => setPassword(e.target.value)}/>
-
-
-
-    // {/* <Button variant="primary" type="submit" >
-    // {isLoading ? "Saving..." : "Submit"}
-    // </Button> */}
-    // </Form>
-    // </div>
     <div>
       <br />
     <Form>
@@ -75,12 +60,12 @@ export default function PasswordCard(props: passwordCard) {
    
 
     <Form.Group >
-      <>
-      <Button type="submit">Update</Button>
+      <> 
+      <Button onClick={() => props.updatePassword(props.id,username, password, name, siteUrl)}>Update</Button>
 
-      <Button type="submit" variant="secondary">Copy</Button>
+      <Button variant="secondary">Copy</Button>
 
-      <Button type="submit" variant="danger">Delete</Button>
+      <Button  variant="danger" onClick={() => props.deletePassword(props.id, props.name)}>Delete</Button>
 
       </>
      
