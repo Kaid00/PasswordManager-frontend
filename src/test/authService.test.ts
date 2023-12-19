@@ -7,7 +7,7 @@ describe('AuthService', () => {
     authService = new AuthService();
   });
 
-  it('should not be authorized initially', async () => {
+  it('Should not be authorized initially', async () => {
     const authorized = await authService.isAuthorized();
     expect(authorized).toBe(false);
   });

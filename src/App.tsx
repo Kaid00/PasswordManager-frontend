@@ -8,13 +8,6 @@ import LoginComponent from './components/login/loginComponent';
 import CreatePassword from './components/password/createPassword';
 import PasswordListings from './components/password/passwordListings';
 
-import {
-  Authenticator,
-  View,
-  Button,
-  useAuthenticator,
-  withAuthenticator
-} from '@aws-amplify/ui-react';
 
 const authService = new AuthService();
 const dataService = new DataService(authService);
